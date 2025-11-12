@@ -1,0 +1,12 @@
+.mySwiper .swiper-slide {
+  height: auto;
+  display: flex;
+}
+
+.mySwiper .swiper-slide > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+
