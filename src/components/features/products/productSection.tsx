@@ -45,7 +45,7 @@ const ProductSection = ({
                 slidesPerView: 2,
               },
               1024: {
-                slidesPerView: 4,
+                slidesPerView: 3,
               },
             }}
             className="mySwiper"

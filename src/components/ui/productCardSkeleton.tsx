@@ -1,17 +1,20 @@
 export default function ProductCardSkeleton() {
   return (
-    <div className="group block w-full h-[500px] overflow-hidden relative">
+    <div className="w-full h-full overflow-hidden relative bg-white rounded-2xl shadow-sm border border-gray-100">
       {/* Image Skeleton */}
-      <div className="h-[350px] w-full animate-pulse bg-gray-200 sm:h-[450px]" />
+      <div className="h-[280px] w-full animate-pulse bg-gradient-to-br from-gray-200 to-gray-300 sm:h-[320px]" />
 
       {/* Card Content Skeleton */}
-      <div className="absolute bottom-0 left-0 right-0 p-3 bg-white/80 backdrop-blur-sm">
+      <div className="p-4 sm:p-5">
         {/* Product Name Skeleton */}
-        <div className="h-4 w-3/4 animate-pulse rounded bg-gray-200 mb-2" />
+        <div className="space-y-2 mb-3">
+          <div className="h-4 w-full animate-pulse rounded bg-gray-200" />
+          <div className="h-4 w-3/4 animate-pulse rounded bg-gray-200" />
+        </div>
 
         {/* Price Skeleton */}
-        <div className="flex items-center gap-2">
-          <div className="h-5 w-20 animate-pulse rounded bg-gray-200" />
+        <div className="flex items-baseline gap-2">
+          <div className="h-6 w-24 animate-pulse rounded bg-gray-200" />
           <div className="h-4 w-16 animate-pulse rounded bg-gray-200" />
         </div>
       </div>
