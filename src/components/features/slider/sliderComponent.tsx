@@ -15,7 +15,7 @@ const SliderComponent = ({ sliderData }: { sliderData: SliderData[] }) => {
       <Swiper
         navigation={true}
         modules={[Navigation, Autoplay]}
-        className="h-[400px] rounded-lg"
+        className="h-[200px] sm:h-[300px] md:h-[350px] lg:h-[400px] rounded-lg"
         loop={true}
         autoplay={{
           delay: 3000,

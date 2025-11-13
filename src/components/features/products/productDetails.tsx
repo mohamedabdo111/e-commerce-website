@@ -17,13 +17,13 @@ export default function ProductDetails({
   hasDiscount,
 }: ProductDetailsProps) {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+    <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 sm:py-8 lg:px-8 lg:py-12">
       <Link
         href="/"
-        className="mb-6 inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors"
+        className="mb-4 sm:mb-6 inline-flex items-center text-sm sm:text-base text-gray-600 hover:text-gray-900 transition-colors"
       >
         <svg
-          className="mr-2 h-5 w-5"
+          className="mr-2 h-4 w-4 sm:h-5 sm:w-5"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -38,7 +38,7 @@ export default function ProductDetails({
         Back to Home
       </Link>
 
-      <div className="grid gap-8 lg:grid-cols-2">
+      <div className="grid gap-4 sm:gap-6 lg:gap-8 lg:grid-cols-2">
         <ProductImage product={product} />
         <ProductContent
           product={product}

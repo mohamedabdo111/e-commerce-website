@@ -47,20 +47,20 @@ const CustomCard = ({ product }: { product: Product }) => {
             width={1000}
             height={1000}
             alt={product.name}
-            className="h-[374px] w-full object-cover transition duration-500 group-hover:scale-105"
+            className="h-[250px] sm:h-[300px] md:h-[350px] lg:h-[374px] w-full object-cover transition duration-500 group-hover:scale-105"
           />
         ) : (
-          <div className="h-[374px] w-[374px] bg-gray-200 flex items-center justify-center">
-            <span className="text-gray-400">No Image</span>
+          <div className="h-[250px] sm:h-[300px] md:h-[350px] lg:h-[374px] w-full bg-gray-200 flex items-center justify-center">
+            <span className="text-xs sm:text-sm text-gray-400">No Image</span>
           </div>
         )}
 
-        <div className="relative border border-gray-100 bg-white p-6">
-          <h3 className="mt-4 text-lg font-medium text-gray-900">
+        <div className="relative border border-gray-100 bg-white p-4 sm:p-6">
+          <h3 className="mt-2 sm:mt-4 text-base sm:text-lg font-medium text-gray-900 line-clamp-2">
             {product.name}
           </h3>
 
-          <p className="mt-1.5 text-sm text-gray-700">
+          <p className="mt-1.5 text-xs sm:text-sm text-gray-700">
             {displayPrice ? `${displayPrice} EGP` : "Price not available"}
             {hasDiscount && originalPrice && (
               <span className="ml-2 text-gray-500 line-through">
@@ -69,10 +69,10 @@ const CustomCard = ({ product }: { product: Product }) => {
             )}
           </p>
 
-          <form className="mt-4">
+          <form className="mt-3 sm:mt-4">
             <button
               onClick={handleAddToCart}
-              className="block w-full rounded-sm bg-primary cursor-pointer text-white px-4 py-2 text-sm font-medium transition hover:scale-105"
+              className="block w-full rounded-sm bg-primary cursor-pointer text-white px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium transition hover:scale-105"
             >
               Add to Cart
             </button>

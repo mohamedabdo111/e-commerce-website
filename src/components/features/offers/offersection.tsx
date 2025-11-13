@@ -22,11 +22,13 @@ const Offersection = ({
     <section>
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
         <header>
-          <h2 className="text-xl font-bold text-gray-900 sm:text-3xl">
+          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900">
             {offerName}
           </h2>
 
-          <p className="mt-4 max-w-md text-gray-500">{offerDescription}</p>
+          <p className="mt-2 sm:mt-4 max-w-md text-sm sm:text-base text-gray-500">
+            {offerDescription}
+          </p>
         </header>
 
         <div className="mt-8">
@@ -39,29 +41,32 @@ const Offersection = ({
               disableOnInteraction: false,
             }}
             breakpoints={{
+              320: {
+                slidesPerView: 1,
+                spaceBetween: 15,
+              },
               640: {
                 slidesPerView: 2,
+                spaceBetween: 20,
               },
               1024: {
                 slidesPerView: 3,
+                spaceBetween: 30,
               },
             }}
             className="mySwiper"
           >
             {offer.products.map((product: Product) => (
-              <SwiperSlide
-                key={product._id}
-                className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
-              >
+              <SwiperSlide key={product._id}>
                 <CustomCard product={product} />
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
-        <div className="mt-8 text-center">
+        <div className="mt-6 sm:mt-8 text-center">
           <Link
             href={`/offers/${offer._id}`}
-            className="hover:text-gray-900 hover:bg-gray-200 border border-gray-300 rounded-md px-4 py-2 transition-all duration-300"
+            className="inline-block hover:text-gray-900 hover:bg-gray-200 border border-gray-300 rounded-md px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base transition-all duration-300"
           >
             View All
           </Link>

@@ -7,7 +7,7 @@ interface ProductImageProps {
 
 export default function ProductImage({ product }: ProductImageProps) {
   return (
-    <div className="overflow-hidden rounded-lg bg-gray-100">
+    <div className="overflow-hidden rounded-lg bg-gray-100 aspect-square w-full">
       {product.image ? (
         <Image
           src={product.image}
@@ -18,8 +18,10 @@ export default function ProductImage({ product }: ProductImageProps) {
           priority
         />
       ) : (
-        <div className="flex h-[500px] w-full items-center justify-center bg-gray-200 sm:h-[600px]">
-          <span className="text-gray-400">No Image Available</span>
+        <div className="flex h-[300px] w-full items-center justify-center bg-gray-200 sm:h-[400px] md:h-[500px] lg:h-[600px]">
+          <span className="text-sm sm:text-base text-gray-400">
+            No Image Available
+          </span>
         </div>
       )}
     </div>

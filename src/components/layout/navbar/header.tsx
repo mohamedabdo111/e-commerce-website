@@ -60,6 +60,9 @@ const Header = () => {
     setIsCategoriesOpen(!isCategoriesOpen);
   };
 
+  const menuExpanded = isMenuOpen ? "true" : "false";
+  const categoriesExpanded = isCategoriesOpen ? "true" : "false";
+
   const navItems = [
     {
       label: "Products",
@@ -70,40 +73,38 @@ const Header = () => {
   ];
 
   return (
-    <nav className="bg-white border-gray-200 py-2.5 ">
-      <div className="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
+    <nav className="bg-white border-gray-200 py-2 sm:py-2.5">
+      <div className="flex flex-wrap items-center justify-between max-w-7xl px-3 sm:px-4 mx-auto">
         <LayoutLogo />
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4">
           {/* Cart Icon */}
           <button
             type="button"
             onClick={() => setIsCartOpen(true)}
-            className="relative inline-flex items-center p-2 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 cursor-pointer"
+            className="relative inline-flex items-center p-1.5 sm:p-2 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 cursor-pointer"
             aria-label="Shopping cart"
           >
-            <ShoppingCart className="w-6 h-6" />
+            <ShoppingCart className="w-5 h-5 sm:w-6 sm:h-6" />
             {getTotalItems() > 0 && (
-              <span className="absolute -top-0 -right-0 cursor-pointer inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-primary rounded-full">
+              <span className="absolute top-0 right-0 cursor-pointer inline-flex items-center justify-center px-1.5 sm:px-2 py-0.5 sm:py-1 text-[10px] sm:text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-primary rounded-full min-w-[18px] sm:min-w-[20px]">
                 {getTotalItems()}
               </span>
             )}
           </button>
         </div>
         <div className="flex items-center lg:hidden">
-          <div className="hidden mt-2 mr-4 sm:inline-block">
-            <span></span>
-          </div>
-
           <button
             type="button"
             onClick={toggleMenu}
-            className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+            className="inline-flex items-center p-1.5 sm:p-2 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
             aria-controls="mobile-menu-2"
-            aria-expanded={isMenuOpen}
+            aria-expanded={menuExpanded}
           >
             <span className="sr-only">Open main menu</span>
             <svg
-              className={`w-6 h-6 ${isMenuOpen ? "hidden" : "block"}`}
+              className={`w-5 h-5 sm:w-6 sm:h-6 ${
+                isMenuOpen ? "hidden" : "block"
+              }`}
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -115,7 +116,9 @@ const Header = () => {
               ></path>
             </svg>
             <svg
-              className={`w-6 h-6 ${isMenuOpen ? "block" : "hidden"}`}
+              className={`w-5 h-5 sm:w-6 sm:h-6 ${
+                isMenuOpen ? "block" : "hidden"
+              }`}
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -141,7 +144,7 @@ const Header = () => {
                 type="button"
                 onClick={toggleCategories}
                 className="flex items-center cursor-pointer justify-between w-full py-2 pl-3 pr-4 text-primary border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-gray-500 lg:p-0"
-                aria-expanded={isCategoriesOpen}
+                aria-expanded={categoriesExpanded}
               >
                 Categories
                 <svg
@@ -162,10 +165,10 @@ const Header = () => {
               </button>
               {/* Dropdown Menu */}
               {isCategoriesOpen && (
-                <div className="absolute left-0 z-50 w-48 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg lg:mt-2">
+                <div className="absolute left-0 z-50 w-48 sm:w-56 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg lg:mt-2 max-h-[60vh] sm:max-h-none overflow-y-auto">
                   <ul className="py-2">
                     {loading ? (
-                      <li className="px-4 py-2 text-sm text-gray-500">
+                      <li className="px-3 sm:px-4 py-2 text-xs sm:text-sm text-gray-500">
                         Loading...
                       </li>
                     ) : categories.length > 0 ? (
@@ -173,7 +176,7 @@ const Header = () => {
                         <li key={category._id}>
                           <Link
                             href={`/categories/${category._id}`}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            className="block px-3 sm:px-4 py-2 text-xs sm:text-sm text-gray-700 hover:bg-gray-100"
                             onClick={() => {
                               setIsCategoriesOpen(false);
                               setIsMenuOpen(false);
@@ -184,7 +187,7 @@ const Header = () => {
                         </li>
                       ))
                     ) : (
-                      <li className="px-4 py-2 text-sm text-gray-500">
+                      <li className="px-3 sm:px-4 py-2 text-xs sm:text-sm text-gray-500">
                         No categories found
                       </li>
                     )}
