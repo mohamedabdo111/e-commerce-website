@@ -1,2 +1,10 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+
+.bg-primary {
+  background-color: #203f57;
+}
+
+.color-primary {
+  color: #203f57;
+}
