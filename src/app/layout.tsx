@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/navbar/header";
 import { CartProvider } from "@/lib/hooks/useCart";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +32,10 @@ export default function RootLayout({
       >
         <CartProvider>
           <Header />
-          <main className="max-w-screen-xl px-4 mx-auto">{children}</main>
+          <main className="max-w-screen-xl px-4 mx-auto pt-16 sm:pt-20">
+            {children}
+          </main>
+          <Toaster position="bottom-left" reverseOrder={false} />
         </CartProvider>
       </body>
     </html>

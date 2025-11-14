@@ -73,7 +73,7 @@ const Header = () => {
   ];
 
   return (
-    <nav className="bg-white border-gray-200 py-2 sm:py-2.5">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 py-2 sm:py-2.5 shadow-sm">
       <div className="flex flex-wrap items-center justify-between max-w-7xl px-3 sm:px-4 mx-auto">
         <LayoutLogo />
         <div className="flex items-center gap-2 sm:gap-4">
@@ -165,7 +165,7 @@ const Header = () => {
               </button>
               {/* Dropdown Menu */}
               {isCategoriesOpen && (
-                <div className="absolute left-0 z-50 w-48 sm:w-56 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg lg:mt-2 max-h-[60vh] sm:max-h-none overflow-y-auto">
+                <div className="absolute left-0 z-[60] w-48 sm:w-56 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg lg:mt-2 max-h-[60vh] sm:max-h-none overflow-y-auto">
                   <ul className="py-2">
                     {loading ? (
                       <li className="px-3 sm:px-4 py-2 text-xs sm:text-sm text-gray-500">

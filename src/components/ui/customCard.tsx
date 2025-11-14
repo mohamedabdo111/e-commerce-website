@@ -1,14 +1,17 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import { Heart } from "lucide-react";
+import React, { useState } from "react";
+import { CheckCircle2Icon, Heart } from "lucide-react";
 import { Product } from "@/types/api.types";
 import AnimatedContent from "../features/animations/AnimatedContent";
 import { useCart } from "@/lib/hooks/useCart";
+import { Alert, AlertDescription, AlertTitle } from "./alert";
+import toast from "react-hot-toast";
 
 const CustomCard = ({ product }: { product: Product }) => {
   const { addToCart } = useCart();
+  const [isLoading, setIsLoading] = useState(false);
   const displayPrice = product.retailPrice ?? product.price;
   const originalPrice = product.originalRetailPrice ?? product.originalPrice;
   const hasDiscount =
@@ -24,7 +27,12 @@ const CustomCard = ({ product }: { product: Product }) => {
   const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
+    setIsLoading(true);
     addToCart(product);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+    toast.success(`${product.name} added to cart`);
   };
 
   return (
@@ -74,7 +82,7 @@ const CustomCard = ({ product }: { product: Product }) => {
               onClick={handleAddToCart}
               className="block w-full rounded-sm bg-primary cursor-pointer text-white px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium transition hover:scale-105"
             >
-              Add to Cart
+              {isLoading ? "Adding to Cart..." : "Add to Cart"}
             </button>
           </form>
         </div>

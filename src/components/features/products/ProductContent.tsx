@@ -4,6 +4,7 @@ import { Product } from "@/types/api.types";
 import { useCart } from "@/lib/hooks/useCart";
 import { useState } from "react";
 import AnimatedContent from "../animations/AnimatedContent";
+import toast from "react-hot-toast";
 
 interface ProductContentProps {
   product: Product;
@@ -26,6 +27,7 @@ export default function ProductContent({
       setIsAdding(true);
       addToCart(product);
       setTimeout(() => setIsAdding(false), 500);
+      toast.success(`${product.name} added to cart`);
     }
   };
 
